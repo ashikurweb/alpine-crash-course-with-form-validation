@@ -1,0 +1,196 @@
+/* reset */
+body {
+    background: #f4f4f4;
+    width: 90%;
+    max-width: 640px;
+    margin: 50px auto;
+  }
+  
+  h1, h2, h3, p, label, input, textarea, button, select {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  /* form & inputs */
+  form {
+    width: 100%;
+    max-width: 560px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 12px 48px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  
+  input, textarea, select {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: #0075ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 117, 255, 0.15);
+  }
+  
+  textarea {
+    max-width: 100%;
+    height: 80px;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  
+  .form-field {
+    margin: 25px 0;
+  }
+  
+  .form-field p.hint {
+    font-size: 0.8em;
+    float: right;
+    color: #777;
+  }
+  
+  .form-field p.warning {
+    color: #f11;
+  }
+  
+  input[type="checkbox"] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    accent-color: #0075ff;
+    cursor: pointer;
+  }
+  
+  .newsletter label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px dotted #e4e4e4;
+    border-radius: 6px;
+  }
+  
+  .form-field.password {
+    position: relative;
+  }
+  
+  .form-field.password button {
+    position: absolute;
+    background: transparent;
+    color: #0075ff;
+    top: 27px;
+    right: 6px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  form button {
+    background: #0075ff;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  
+  .form-field.password input {
+    padding-right: 70px;
+  }
+  
+  .error {
+    color: #fe3131;
+    font-size: 0.8em;
+  }
+  
+  .success {
+    color: #00c277;
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  /* modal */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    transition: all ease-in 300ms;
+  }
+  
+  .modal h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+  
+  .modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #0075ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .modal button:hover {
+    background: #005bb5;
+  }
+  
+  [x-cloak] {
+    display: none !important;
+  }
+  
+  /* modal transitions */
+  .modal.on-screen {
+    transition: all ease-in 300ms;
+    transform: translateY(0);
+  }
+  .modal.off-screen {
+    transition: all ease-in 300ms;
+    transform: translateY(-100vh);
+  }
+  

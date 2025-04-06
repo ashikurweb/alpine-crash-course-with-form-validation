@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine Js Crash Course</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  </head>
+  <body>
+    <form x-data="signupform" @submit.prevent="submitForm">
+      <h1>Creae Your Account!</h1>
+
+      <div class="form-field">
+        <p class="hint" :class="{'warning': username.length > 10}">
+          <span x-text="15 - username.length"></span> Characters remaining
+        </p>
+        <label>
+          <span>Username</span>
+          <input type="text" x-model="username" maxlength="20" />
+        </label>
+
+        <template x-if="errors.username">
+            <p class="error" x-text="errors.username"></p>
+        </template>
+
+        <div x-text="username"></div>
+      </div>
+
+      <div class="form-field password">
+        <label>
+          <span>Password</span>
+          <input :type="currentPassword ? 'text' : 'password'" x-model="password" />
+          <button type="button" @click="currentPassword = !currentPassword">
+            <i :class="currentPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+          </button>
+        </label>
+
+        <template x-if="errors.password">
+            <p class="error" x-text="errors.password"></p>
+        </template>
+      </div>
+
+      <div class="form-field password">
+        <label>
+          <span>Confirm Password</span>
+          <input :type="confirmPassword ? 'text' : 'password'" x-model="confirm_password" />
+          <button type="button" @click="confirmPassword = !confirmPassword">
+            <i :class="confirmPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+            </button>
+        </label>
+
+        <template x-if="errors.confirm_password">
+            <p class="error" x-text="errors.confirm_password"></p>
+        </template>
+      </div>
+
+      <div class="form-field">
+        <label>
+          <span>Belt Color</span>
+          <select x-model="belt_color">
+            <option >Select Belt Color</option>
+            <template x-for="(color, index ) in beltChoice" :key="color">
+              <option :value="color" x-text="color"></option>
+            </template>
+          </select>
+        </label>
+
+        <template x-if="errors.belt_color">
+            <p class="error" x-text="errors.belt_color"></p>
+        </template>
+
+        <div x-text="belt_color"></div>
+      </div>
+
+      <div class="form-field">
+        <p class="hint" :class="{'warning': short_bio.length > 90}">
+          <span x-text="100 - short_bio.length"></span> Characters remaining
+        </p>
+        <label>
+          <span>Short Bio</span>
+          <textarea maxlength="100" x-model="short_bio"></textarea>
+        </label>
+
+        <template x-if="errors.short_bio">
+            <p class="error" x-text="errors.short_bio"></p>
+        </template>
+
+        <div x-text="short_bio"></div>
+      </div>
+
+      <div class="form-field">
+        <label>
+          <input type="checkbox" x-model="newsletter" />
+          <span>Newsletter</span>
+        </label>
+
+      </div>
+
+      <div class="form-field">
+        <button type="submit">Sign Up</button>
+      </div>
+
+      <div class="overlay" x-show="success" x-cloak x-transition.opacity.duration.500ms>
+        <div class="modal" x-show="success"
+            x-transition:enter-start="off-screen"
+            x-transition:enter-end="on-screen"
+        >
+            <h1>Thank you for signing up</h1>
+            <button type="button" @click="success = false">Close</button>
+        </div>
+      </div>
+    </form>
+
+
+    <script src="main.js"></script>
+  </body>
+</html>
